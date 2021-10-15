@@ -19,16 +19,38 @@ namespace W6D5_Training_Ses1
                 Address = "23 Pears Avenue",
                 Designation = "CEO",
                 Salary = 10000000,
+
             };
-            string  employeeJson = JsonConvert.SerializeObject(emp);
+
+            Employee emp1 = new Employee()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Akhi1",
+                Address = "10 Pears Avenue",
+                Designation = "CTO",
+                Salary = 10000000,
+
+            };
+
+            List<Employee> employeeList = new List<Employee>();
+            employeeList.Add(emp);
+            employeeList.Add(emp1);
+
+
+            string  employeeListJson = JsonConvert.SerializeObject(employeeList);
             //File.Create("Employee.Json");
-            File.WriteAllText("Employee.json", employeeJson);
+            File.WriteAllText("Employee.json", employeeListJson);
            
             //Console.ReadLine();
-            Employee empTemp =JsonConvert.DeserializeObject<Employee>(File.ReadAllText("Employee.json"));
+            List<Employee> empTemp = JsonConvert.DeserializeObject<List<Employee>>(File.ReadAllText("Employee.json"));
             string employeeJson1 = JsonConvert.SerializeObject(empTemp);
             File.WriteAllText("Employee1.json", employeeJson1);
             Console.ReadLine();
+
+            //ctr R
+            //ctr G
+
+
         }
 
     }
